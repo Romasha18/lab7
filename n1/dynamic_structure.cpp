@@ -1,12 +1,10 @@
-// dynamic_structure.cpp
-
 #include "dynamic_structure.h"
 #include <iostream>
 
 using namespace std;
 
 Node* create() {
-    return nullptr; // Начальное значение - пустой список
+    return nullptr;
 }
 
 void addElement(Node*& head, int newData) {
