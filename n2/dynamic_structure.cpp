@@ -15,6 +15,29 @@ void addElement(Node*& head, int newData) {
     head = newNode;
 }
 
+void displayInReverse(Node* head) {
+    if (head == nullptr) {
+        cout << "Список пуст" << endl;
+        return;
+    }
+    Node* current = head;
+    Node* prev = nullptr;
+    Node* next = nullptr;
+
+    while (current != nullptr) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    while (prev != nullptr) {
+        cout << prev->data << " ";
+        prev = prev->next;
+    }
+    cout << endl;
+}
+
+
 void deleteElement(Node*& head, int targetData) {
     Node* current = head;
     Node* previous = nullptr;

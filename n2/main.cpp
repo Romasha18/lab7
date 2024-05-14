@@ -23,18 +23,28 @@ int main() {
     cout << "Исходные данные: ";
     display(P1);
 
-    
     float average = calculateAverage(P1);
     cout << "Среднее значение: " << average << endl;
 
     Node* nearestToAverage = findNearestToAverage(P1, average);
 
-    deleteElement(P1, nearestToAverage->data);
-    nearestToAverage->next = P1;
-    P1 = nearestToAverage;
+    // Создаем новый список, добавляя ближайший элемент на первое место
+    Node* newP1 = create();
+    addElement(newP1, nearestToAverage->data);
+
+    // Добавляем остальные элементы из исходного списка в новый список
+    Node* current = P1;
+    while (current != nullptr) {
+        if (current != nearestToAverage) {
+            addElement(newP1, current->data);
+        }
+        current = current->next;
+    }
+
+    cout << "Ближайший элемент к среднему значению: " << nearestToAverage->data << endl;
 
     cout << "Результат: ";
-    display(P1);
+    displayInReverse(newP1);
 
     return 0;
 }
