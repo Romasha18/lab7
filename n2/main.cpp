@@ -28,11 +28,9 @@ int main() {
 
     Node* nearestToAverage = findNearestToAverage(P1, average);
 
-    // Создаем новый список, добавляя ближайший элемент на первое место
     Node* newP1 = create();
     addElement(newP1, nearestToAverage->data);
 
-    // Добавляем остальные элементы из исходного списка в новый список
     Node* current = P1;
     while (current != nullptr) {
         if (current != nearestToAverage) {

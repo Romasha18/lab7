@@ -11,7 +11,9 @@ int main() {
     addElement(P1, 10);
     P2 = P1->next;
 
-    int D = 15;
+    int D;
+    cout << "Введите значение для переменной D: ";
+    cin >> D;
     addElement(P2, D);
 
     Node* extractedElement = P1;
@@ -19,7 +21,6 @@ int main() {
     int extractedData = extractedElement->data;
     delete extractedElement; 
 
-   
     cout << "Извлеченный элемент: " << extractedData << endl;
 
     cout << "Содержимое очереди после операций: ";
